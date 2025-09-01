@@ -1,0 +1,30 @@
+{
+    "name": "image-compressor-tool",
+    "version": "1.0.0",
+    "description": "A powerful image compression tool with caching support",
+    "main": "lib/index.js",
+    "type": "module",
+    "scripts": {
+        "compress": "node scripts/compress.js",
+        "compress:dir": "node scripts/compress-dir.js",
+        "clean": "node scripts/clean-cache.js"
+    },
+    "keywords": [
+        "image",
+        "compression",
+        "tinify",
+        "optimizer"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "tinify": "^2.6.1"
+    },
+    "devDependencies": {
+        "dotenv": "^16.0.3"
+    },
+    "files": [
+        "lib/",
+        "scripts/"
+    ]
+}
