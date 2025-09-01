@@ -5,6 +5,7 @@
     "main": "lib/index.js",
     "type": "module",
     "scripts": {
+        "test": "node lib index.js",
         "compress": "node scripts/compress.js",
         "compress:dir": "node scripts/compress-dir.js",
         "clean": "node scripts/clean-cache.js"
@@ -18,10 +19,8 @@
     "author": "",
     "license": "MIT",
     "dependencies": {
-        "tinify": "^2.6.1"
-    },
-    "devDependencies": {
-        "dotenv": "^16.0.3"
+        "crypto": "^1.0.1",
+        "tinify": "^1.8.1"
     },
     "files": [
         "lib/",
