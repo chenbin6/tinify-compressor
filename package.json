@@ -2,13 +2,11 @@
     "name": "image-compressor-tool",
     "version": "1.0.0",
     "description": "A powerful image compression tool with caching support",
-    "main": "lib/index.js",
+    "main": "lib/compressor.js",
     "type": "module",
     "scripts": {
-        "test": "node lib index.js",
-        "compress": "node scripts/compress.js",
-        "compress:dir": "node scripts/compress-dir.js",
-        "clean": "node scripts/clean-cache.js"
+        "test": "node lib/index.js",
+        "compress": "node lib/index.js"
     },
     "keywords": [
         "image",

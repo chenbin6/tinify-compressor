@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const cacheFile = process.env.DEFAULT_CACHE_FILE || '.tinify-cache.json';
+const cacheFile = '.tinify-cache.json';
 
 try {
     if (fs.existsSync(cacheFile)) {
