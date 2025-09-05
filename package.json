@@ -4,9 +4,16 @@
     "description": "A powerful image compression tool with caching support",
     "main": "lib/compressor.js",
     "type": "module",
+    "bin": {
+        "compress": "scripts/index.js"
+    },
     "scripts": {
-        "test": "node lib/index.js",
-        "compress": "node lib/index.js"
+        "test": "scripts/index.js",
+        "compress": "scripts/index.js",
+        "build": "rollup -c",
+        "dev": "rollup -c -w",
+        "publish:private": "npm publish",
+        "publish:private:beta": "npm publish --tag beta"
     },
     "keywords": [
         "image",
@@ -23,5 +30,9 @@
     "files": [
         "lib/",
         "scripts/"
-    ]
+    ],
+    "devDependencies": {
+        "@rollup/plugin-terser": "^0.4.4",
+        "rollup": "^4.50.0"
+    }
 }
