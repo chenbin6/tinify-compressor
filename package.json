@@ -1,5 +1,5 @@
 {
-    "name": "image-compressor-tool",
+    "name": "@fe/image-compressor-tool",
     "version": "1.0.0",
     "description": "A powerful image compression tool with caching support",
     "main": "lib/compressor.js",
