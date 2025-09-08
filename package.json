@@ -8,7 +8,7 @@
         "compress": "scripts/index.js"
     },
     "scripts": {
-        "test": "scripts/index.js",
+        "test": "node scripts/index.js",
         "compress": "scripts/index.js",
         "build": "rollup -c",
         "dev": "rollup -c -w",
