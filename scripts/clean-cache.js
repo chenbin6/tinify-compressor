@@ -1,9 +1,7 @@
 import fs from 'fs';
-import dotenv from 'dotenv';
+import path from 'path';
 
-dotenv.config();
-
-const cacheFile = '.tinify-cache.json';
+const cacheFile = path.join(process.cwd(), '.tinify-cache.json');
 
 try {
     if (fs.existsSync(cacheFile)) {
