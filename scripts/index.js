@@ -15,25 +15,26 @@ if (paths.length === 0) {
     const _tinify = new Compressor(key);
     for (const filePath of paths) {
         const resolvedPath = path.resolve(filePath);
-        
+
         // 检查路径是否存在
         if (!fs.existsSync(resolvedPath)) {
             console.error(`Path does not exist: ${resolvedPath}`);
             continue;
         }
-        
-        let _continue = false;
-        while (!_continue && key) {
+
+        let _return = false;
+        while (!_return && key) {
             try {
                 await _tinify.compressBatch(resolvedPath);
                 _continue = true;
             } catch (err) {
                 if (err === 'tinify.AccountError') {
                     key = getKey();
-                    _continue = !!!key;
+                    _return = !key;
+                    _tinify.updateTinifyKey(key);
                 } else {
                     console.error(`Error compressing ${resolvedPath}:`, err);
-                    _continue = true;
+                    _return = true;
                 }
             }
         }
