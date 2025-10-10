@@ -4,19 +4,38 @@ import getKey from './keys.js';
 import path from 'path';
 import fs from 'fs';
 
-const paths = process.argv.slice(2);
+// 解析命令行参数，分离路径和选项
+const args = process.argv.slice(2);
+const paths = [];
+const options = {};
+
+args.forEach(arg => {
+    if (arg === '--no-cache') {
+        options.useCache = false;
+    } else {
+        paths.push(arg);
+    }
+});
+
+console.log('Args:', args);
+console.log('Paths:', paths);
+console.log('Options:', options);
+
 if (paths.length === 0) {
     console.error('Please provide a directory path');
+    console.error('Options:');
+    console.error(
+        '  --no-cache  Disable cache and compress all images regardless of previous compression'
+    );
     process.exit(1);
 }
 
 (async () => {
     let key = getKey();
-    const _tinify = new Compressor(key);
+    const _tinify = new Compressor(key, options);
     for (const filePath of paths) {
         const resolvedPath = path.resolve(filePath);
 
-        // 检查路径是否存在
         if (!fs.existsSync(resolvedPath)) {
             console.error(`Path does not exist: ${resolvedPath}`);
             continue;
